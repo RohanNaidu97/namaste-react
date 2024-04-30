@@ -44,11 +44,15 @@
     border: 5px solid black;
 }
 
-.search{
+.filter-btn{
     padding: 10px;
+    margin: 10px;
+
 }
 
 #heading{
     background-color: aquamarine;
 }
+
+
 

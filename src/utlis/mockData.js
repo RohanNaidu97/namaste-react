@@ -1,42 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-    return(
-        <div className = "header">
-            <div className="nav-bar">
-                <img id = "app-logo" alt = "app logo" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5ychB0gzKUiciTunIPeII_aIoptW3k81YQpa0wryEFA&s"/>
-                <ul>
-                    <li> Home </li>
-                    <li> About Us </li>
-                    <li> Contact Us </li>
-                    <li> Cart </li>
-                </ul>
-            </div>
-        </div>
-    );
-}
-
-
-const RestaurantCard = (props) => {
-    const { resData } = props;
-
-    const { cloudinaryImageId, name, cuisines, sla, avgRating } = resData.info;
-
-    return(
-        <div className="res-card">
-            <img id = "res-logo" alt="res logo" 
-            src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} />
-            <h3> { name } </h3>
-            <h4> { cuisines.join(", ") } </h4>
-            <h4> { sla.deliveryTime } </h4>
-            <h4> { avgRating } </h4>
-        </div>
-    );
-}   
-
-
-const resList = [{
+export const resList = [{
     "info": {
       "id": "752535",
       "name": "KFC",
@@ -672,43 +634,89 @@ const resList = [{
   ]
 
 
-
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search"> Search </div>
-            <div className="res-container">
-                { resList.map( (restaurant) => (
-                    <RestaurantCard resData = {restaurant} />
-                )) }
-            </div>          
-        </div>
-    );
-}
-
-const AppLayout = () => {
-    return(
-        <div className="app-layout">
-            <Header />
-            <Body />
-        </div>
-    );
-}
-
-
-
-// const Title = () => (<h1 id = "title " tabIndex="5"> This is Component composition </h1>);
-
-// const HeadingComponent = () => {
-//     return (<><div id = "container">
-//     {Title()}
-//     <Title/>
-//     { 123 + "321"}
-//     <h1> Hello World from Functional Component! </h1>
-//     </div></>)
-    
-// };
-
-const root = ReactDOM.createRoot( document.getElementById("root") );
-
-root.render(<AppLayout/>);
+const listofRestaurants = [[
+  {"info": {
+      "id": "752535",
+      "name": "KFC",
+      "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/5d0c595a-dfb2-472b-8ca0-f4701adaa38d_752535.JPG",
+      "locality": "Dattwadi",
+      "areaName": "Puna wale",
+      "costForTwo": "₹400 for two",
+      "cuisines": [
+      "Burgers",
+      "Biryani",
+      "American",
+      "Snacks",
+      "Fast Food"
+      ],
+      "avgRating": 4.2,
+      "parentId": "547",
+      "avgRatingString": "4.2",
+      "totalRatingsString": "500+",
+      "sla": {
+      "deliveryTime": 30,
+      "lastMileTravel": 3,
+      "serviceability": "SERVICEABLE",
+      "slaString": "25-30 mins",
+      "lastMileTravelString": "3.0 km",
+      "iconType": "ICON_TYPE_EMPTY"
+          },
+      }
+  },
+  {"info": {
+      "id": "752535",
+      "name": "Domino's",
+      "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/5d0c595a-dfb2-472b-8ca0-f4701adaa38d_752535.JPG",
+      "locality": "Dattwadi",
+      "areaName": "Puna wale",
+      "costForTwo": "₹400 for two",
+      "cuisines": [
+      "Burgers",
+      "Biryani",
+      "American",
+      "Snacks",
+      "Fast Food"
+      ],
+      "avgRating": 4.2,
+      "parentId": "547",
+      "avgRatingString": "4.2",
+      "totalRatingsString": "500+",
+      "sla": {
+      "deliveryTime": 30,
+      "lastMileTravel": 3,
+      "serviceability": "SERVICEABLE",
+      "slaString": "25-30 mins",
+      "lastMileTravelString": "3.0 km",
+      "iconType": "ICON_TYPE_EMPTY"
+          },
+      }
+  },
+  {"info": {
+      "id": "752535",
+      "name": "MCD",
+      "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/17/5d0c595a-dfb2-472b-8ca0-f4701adaa38d_752535.JPG",
+      "locality": "Dattwadi",
+      "areaName": "Puna wale",
+      "costForTwo": "₹400 for two",
+      "cuisines": [
+      "Burgers",
+      "Biryani",
+      "American",
+      "Snacks",
+      "Fast Food"
+      ],
+      "avgRating": 3.8,
+      "parentId": "547",
+      "avgRatingString": "4.2",
+      "totalRatingsString": "500+",
+      "sla": {
+      "deliveryTime": 30,
+      "lastMileTravel": 3,
+      "serviceability": "SERVICEABLE",
+      "slaString": "25-30 mins",
+      "lastMileTravelString": "3.0 km",
+      "iconType": "ICON_TYPE_EMPTY"
+          },
+      }
+  }
+]] 
