@@ -19,7 +19,7 @@ class AboutUs extends React.Component{
                 <h1> This project will help us get a JOB !!!</h1>
                 <h2> We are going to Netherlands </h2>
 
-                {/* <User name = {"Ajay Sharma Function One"} location = {"Netherlands"} /> */}
+                <User name = {"Ajay Sharma Function One"} location = {"Netherlands"} />
 
                 <UserClass name = {"Ajay Sharma Class One"} location = {"Netherlands"} />
             </div>

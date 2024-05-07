@@ -18,3 +18,10 @@
 - HTTPS
 - Tree Shaking - remove unused files
 - Different dev and prod bundles
+
+# lazy loading
+- Chunking
+- Code Spliting
+- Dynamic Bundling
+- on demand loading
+- dynamic import
