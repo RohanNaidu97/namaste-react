@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { resList } from "../utlis/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -11,6 +11,8 @@ const Body = () => {
     const [ filteredRestaurant, setFilteredRestaurant] = useState( [] );
 
     const [ searchText, setSearchText ] = useState("");
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
    
     useEffect( () => {
         fetchData();
@@ -24,10 +26,12 @@ const Body = () => {
         const json = await data.json();
 
         console.log(json);
-        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        console.log(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+        // console.log(json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         setListofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+        setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
 
@@ -39,7 +43,7 @@ const Body = () => {
         <div className="body">
             <div className="filter my-16 flex justify-between bg-orange-200 py-2 navbar navbar-expand">
                 <div className="search px-2 space-x-auto bg-teal-400 rounded mx-2 ">
-                    <input className="search-box px-1 bg-green-10" type="text" value={ searchText } 
+                    <input className="search-box px-1 bg-green-10 border-black" type="text" value={ searchText } 
                         onChange={ (e) => {
                             setSearchText(e.target.value);
                         } }
@@ -74,7 +78,12 @@ const Body = () => {
                 { filteredRestaurant.map( (restaurant) => (
                     <Link key = { restaurant.info.id } 
                     to={"/restaurants/" + restaurant.info.id}>
-                    <RestaurantCard  resData = {restaurant} />
+                    
+                    {restaurant.info.availability.opened ? 
+                    (<RestaurantCardPromoted resData = {restaurant} />) : 
+
+                    (<RestaurantCard  resData = {restaurant} />)
+                    }
                     </Link>
                 )) }
             </div>          
