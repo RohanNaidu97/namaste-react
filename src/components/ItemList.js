@@ -1,7 +1,7 @@
 import { RES_LOGO } from "../utlis/constants" 
 
 const ItemList = ({ items }) => {
-    console.log(items);
+    // console.log(items);
     return(
         <div className="Category">
             { items.map( (item) => (

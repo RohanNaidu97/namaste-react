@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
     const [ showIndex, setShowIndex ] = useState(null);
 
     const params = useParams();
-    console.log(params.resid);
+    // console.log(params.resid);
     const resId = params.resid;
 
     const resInfo = useRestaurantMenu(resId);
@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
             "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
     );
 
-    console.log(categories);
+    // console.log(categories);
 
     return(
         <div className="menu text-center">

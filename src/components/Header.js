@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { APP_LOGO } from "../utlis/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utlis/useOnlineStatus";
+import UserContext from "../utlis/UserContext";
 
 
 const Header = () => {
     const [ btnNameReact, setBtnNameReact ] = useState( "Login" );
 
     const onlineStatus = useOnlineStatus();
+
+    const { loggedInUser } = useContext(UserContext);
+    console.log(loggedInUser);
 
     return(
         <div className = "header font-serif bg-orange-400 mx-auto">
@@ -24,6 +28,8 @@ const Header = () => {
                                 btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact( "Login" )  } }>
                             {btnNameReact}
                         </button> </li>
+
+                    <li> { loggedInUser } </li>
                 </ul>
                 
             </div>
